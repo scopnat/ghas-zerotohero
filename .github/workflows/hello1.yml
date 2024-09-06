@@ -16,6 +16,9 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+ build:
+        env:
+            MY_ENV : "Adedeji Awolesi"
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
@@ -31,6 +34,12 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
+      
+      - name: Run a multi-line script
+        run: |
+          echo "Hello $MY_ENV"
+          echo "Hello $GITHUB_ACTOR"   
+
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
