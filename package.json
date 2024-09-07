@@ -1,17 +1,17 @@
 {
-  "name": "ghas-zerotohero",
+  "name": "vulnerable-node-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "A Node.js app with a vulnerable dependency.",
+  "main": "app.js",
   "dependencies": {
-    "express": "^4.19.2"
-  }
+    "express": "^4.17.1",
+    "minimist": "0.0.8"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Your Name",
+  "license": "MIT"
 }
 
 
