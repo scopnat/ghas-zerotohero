@@ -20,6 +20,7 @@ app.get('/some/path', function(req, res) {
   }
 });
 
+// Vulnerability for SQL injection
 // Import necessary modules
 const express = require('express');
 const mysql = require('mysql');
@@ -56,6 +57,35 @@ app.get('/user', (req, res) => {
         // Send the result back to the user
         res.send(result);
     });
+});
+
+// Start the express server
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+
+// Vulnerability for Cross-Site Scripting
+// Import necessary modules
+const express = require('express');
+const bodyParser = require('body-parser');
+
+// Initialize express app
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Vulnerable route to demonstrate XSS
+app.get('/search', (req, res) => {
+    // Capture the user input from the query parameter
+    const searchQuery = req.query.q;
+
+    // Return the search result (unsanitized user input - XSS vulnerability)
+    res.send(`
+        <html>
+            <body>
+                <h1>Search Results for: ${searchQuery}</h1>
+            </body>
+        </html>
+    `);
 });
 
 // Start the express server
