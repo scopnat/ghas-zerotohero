@@ -70,6 +70,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // Initialize express app
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -92,21 +93,3 @@ app.get('/search', (req, res) => {
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
-
-// Vulnerability for Iodash
-{
-  "name"- "vulnerable-node-app",
-  "version" - "1.0.0",
-  "description"-  "A Node.js app with a vulnerable dependency.",
-  "main" - "app.js",
-  "dependencies"- {
-    "express":"^4.17.1",
-    "lodash": "4.17.15"  // Vulnerable version of lodash
-  },
-  "scripts"- {
-    "start": "node app.js"
-  },
-  "author"- "Your Name",
-  "license" - "MIT"
-}
-
